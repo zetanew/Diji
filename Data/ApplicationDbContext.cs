@@ -10,6 +10,7 @@ namespace Diji.Data
         {
         }
 
-        public DbSet<Test> Test { get; set; }
+        public DbSet<State> States { get; set; }
+        public DbSet<Job> Jobs { get; set; }
     }
 }
