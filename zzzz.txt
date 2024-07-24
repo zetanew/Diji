@@ -1,0 +1,1 @@
+docker run --name dijiDb -e POSTGRES_PASSWORD=my_pw -p 5432:5432 -d postgres

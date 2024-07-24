@@ -1,0 +1,6 @@
+@Diji_HostAddress = http://localhost:5042
+
+GET {{Diji_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
