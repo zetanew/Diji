@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Diji.Data;
-using Diji.Models; 
-using Microsoft.EntityFrameworkCore; 
-using System.Collections.Generic; 
+using Diji.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq; // Add this for LINQ queries
 
 namespace Diji.Controllers
 {
@@ -17,11 +18,18 @@ namespace Diji.Controllers
             _context = context;
         }
 
-        // GET: api/Jobs
+        // GET: api/Jobs?stateId=1
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Job>>> GetJobs()
+        public async Task<ActionResult<IEnumerable<Job>>> GetJobs(int? stateId)
         {
-            return await _context.Jobs.ToListAsync();
+            IQueryable<Job> query = _context.Jobs;
+
+            if (stateId.HasValue)
+            {
+                query = query.Where(j => j.StateId == stateId);
+            }
+
+            return await query.ToListAsync();
         }
     }
 }
