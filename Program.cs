@@ -7,6 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Add services for controllers
+builder.Services.AddControllers(); // Add this line to add MVC controllers support
+
 // Configure DbContext for PostgreSQL
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -21,6 +24,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.MapGet("/", () => "Hello World!");
+
+// Map controllers
+app.MapControllers(); // Add this line to map MVC controllers
 
 app.Run();
