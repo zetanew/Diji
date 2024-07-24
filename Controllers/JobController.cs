@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using Diji.Data; // Import the namespace where ApplicationDbContext is located
-using Diji.Models; // Import the namespace for accessing the Job model
-using Microsoft.EntityFrameworkCore; // For using Include and other EF methods
-using System.Collections.Generic; // For using List
+using Diji.Data;
+using Diji.Models; 
+using Microsoft.EntityFrameworkCore; 
+using System.Collections.Generic; 
 
 namespace Diji.Controllers
 {
