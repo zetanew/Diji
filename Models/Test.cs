@@ -12,7 +12,7 @@ namespace Diji.Models
         public int Id { get; set; }
 
         [Required]
-        public string Name { get; set; }
+        public required string Name { get; set; }
 
         // Navigation property for one-to-many relationship
         public ICollection<Job> Jobs { get; set; } = new List<Job>();
@@ -25,7 +25,7 @@ namespace Diji.Models
         public int Id { get; set; }
 
         [Required]
-        public string Name { get; set; }
+        public required string Name { get; set; }
 
         public int Categorized { get; set; }
         public int ScannedDocs { get; set; }
@@ -41,6 +41,6 @@ namespace Diji.Models
         public int StateId { get; set; }
 
         // Navigation property for the related State
-        public State State { get; set; }
+        public required State State { get; set; } // required because every job must have a state
     }
 }
